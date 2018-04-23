@@ -44,10 +44,16 @@ class Board():
 
         # Get all the empty squares (color==0)
         for y in range(self.ny):
+            empty= -1
             for x in range(self.nx):
                 if self[x][y]==0:
-                    newmove = (x,y)
-                    moves.add(newmove)
+                    empty= x
+                
+            if empty==-1:
+                pass
+            else:   
+                newmove = (empty,y)
+                moves.add(newmove)
         return list(moves)
 
     def has_legal_moves(self):
